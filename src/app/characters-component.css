@@ -1,4 +1,4 @@
-.characters {list-style-type: none; margin-left: 1em; padding: 0; width: 10em;}
+.characters {list-style-type: none; margin-left: 1em; padding: 0; width: 14em;}
 
 .characters li { cursor: pointer; position: relative; left: 0; transition: all 0.2s ease; }
 
