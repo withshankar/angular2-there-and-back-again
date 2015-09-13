@@ -14,9 +14,8 @@
 ## Notes
 
 - Add redirectTo and/or otherwise routes
-- Replace mocks with http when ready
 - Update file names with dots when SystemJS 0.19 lands
-
+- Fix http as it evolves
 
 ## From Scratch
 
@@ -70,7 +69,7 @@
 		selector: 'app'
 	})
 	@View({
-		template: '<h1>My First Angular 2 App</h1>'
+		template: '<h1>Dashboard</h1>'
 	})
 	export class AppComponent { }
 
