@@ -38,8 +38,9 @@ export class CharactersComponent {
   get Characters() {
     if (this._characters) { return this._characters; }
 
-    this._characterService.getCharacters().then(Characters =>
-      this._characters = this.filteredCharacters = Characters
+    this._characterService.getCharacters()
+      .then(Characters =>
+        this._characters = this.filteredCharacters = Characters
       );
     return this._characters;
   }
