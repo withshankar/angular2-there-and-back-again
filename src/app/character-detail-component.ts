@@ -10,7 +10,7 @@ import {CHARACTER_DIRECTIVES} from './character-directives';
   directives: [CHARACTER_DIRECTIVES]
 })
 export class CharacterDetailComponent {
-  character: Character;
+  character: Character = <Character>{};
 
   constructor(private _characterService: CharacterService, private _routeParams: RouteParams) {
     let id = +_routeParams.get('id');
