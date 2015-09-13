@@ -1,0 +1,16 @@
+<div>
+  <h2>My Characters</h2>
+  <filter-text [text]="filterText" (changed)="filterChanged($event)"></filter-text>
+  <ul class="characters">
+    <li *ng-for="#character of filteredCharacters | sortCharacters"
+      [ng-class]="getSelectedClass(character)"
+      (click)="onSelect(character)">
+      <span class="badge">{{character.id}}</span> {{character.name | initCaps}}</a>
+    </li>
+  </ul>
+  <div *ng-if="currentCharacter">
+    <h2>{{currentCharacter.name}} is my Character</h2>
+		<button (click)="goDetail()">View Details</button>
+  </div>
+</div>
+Async Piped Data from 500ms delay = {{ dataAsync | async }}

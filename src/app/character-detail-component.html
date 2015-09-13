@@ -1,0 +1,8 @@
+<div>
+	<h2>View {{character.name | uppercase}} details!</h2>
+	<div><label>id: </label>{{character.id}}</div>
+	<div>
+		<label>name: </label>
+		<input [(ng-model)]="character.name" placeholder="name"></input>
+	</div>
+</div>
