@@ -7,7 +7,7 @@ export class CharacterService {
 	constructor(private _http: Http) {}
 
 	getCharacters(): Rx.IPromise<Character[]> {
-		let promise = this._http.get('characters.json')
+		let promise = this._http.get('./characters.json')
 			.toRx().map((response: any) => response.json()).toPromise();
 		return promise;
 	}

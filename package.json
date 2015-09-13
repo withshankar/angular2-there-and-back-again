@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "angular2": "2.0.0-alpha.37",
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
     "systemjs": "0.18.17",
     "traceur": "0.0.91"
   }

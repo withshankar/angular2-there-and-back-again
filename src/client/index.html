@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <base href="/src/"></base>
+  <base href="/"></base>
   <link rel="stylesheet" href="styles.css">
   <script src="../node_modules/traceur/bin/traceur-runtime.js"></script>
   <script src="../node_modules/systemjs/dist/system.src.js"></script>
@@ -15,9 +15,9 @@
   <taba-app>Loading...</taba-app>
   <script>
     System.config({
-      packages: {'app': {defaultExtension: 'js'}}
+      packages: {'/src/client/app': {defaultExtension: 'js'}}
     });
-    System.import('app/bootstrap').catch(console.log.bind(console));
+    System.import('./src/client/app/bootstrap').catch(console.log.bind(console));
   </script>
 </body>
 
