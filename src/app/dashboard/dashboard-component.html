@@ -4,11 +4,15 @@
 		<h4>One Way Binding</h4>
 		<div>Hello {{firstName}}</div>
 
-		<h4>Local Variables</h4>
-		<input #mylocalvar "/>{{mylocalvar.value}}
-		<button (click)="addThing(mylocalvar.value)">Add Local Var</button>
+		<h4>Binding Without Two-Way</h4>
+		<input [value]="city">
+		<p>City = {{city}}</p>
 
-		<h4>Two-Way Binding (explicit)</h4>
+		<h4>Binding With Two-Way (Long Form)</h4>
+		<input [value]="city" (input)="city = $event.target.value">
+		<p>City = {{city}}</p>
+
+		<h4>Two-Way Binding (ng-model directive long form)</h4>
 		<input [ng-model]="firstName" (ng-model)="firstName=$event"/> {{firstName}}
 
 		<h4>Two-Way Binding (sugar)</h4>
@@ -16,4 +20,9 @@
 
 		<h4>Two-Way Binding (classic style)</h4>
 		<input bind-ng-model="city" bindon-ng-model="city" /> {{city}}
+
+		<h4>Local Variables</h4>
+		<input #mylocalvar "/>{{mylocalvar.value}}
+		<button (click)="addThing(mylocalvar.value)">Add Local Var</button>
+
 </div>
