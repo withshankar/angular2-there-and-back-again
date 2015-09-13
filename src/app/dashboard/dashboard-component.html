@@ -1,9 +1,4 @@
-import {Component, View} from 'angular2/angular2';
-import {CHARACTER_DIRECTIVES} from './character-directives';
-
-@Component({ selector: 'my-dashboard' })
-@View({
-	template: `
+<div>
 		<h2>Dashboard</h2>
 
 		<h4>One Way Binding</h4>
@@ -21,14 +16,4 @@ import {CHARACTER_DIRECTIVES} from './character-directives';
 
 		<h4>Two-Way Binding (classic style)</h4>
 		<input bind-ng-model="city" bindon-ng-model="city" /> {{city}}
-		`,
-  directives: [CHARACTER_DIRECTIVES]
-})
-export class DashboardComponent {
-	firstName = 'john';
-	lastName = 'papa';
-	city = 'orlando';
-	addThing(thing: string) {
-		console.log(`adding ${thing}`);
-	}
-}
+</div>

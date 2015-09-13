@@ -1,19 +1,19 @@
 import {Component, View} from 'angular2/angular2';
 import {Router} from 'angular2/router';
-import {CharacterService} from './character-service';
-import {Character} from './character';
-import {Routes} from './route-config';
-import {CHARACTER_DIRECTIVES} from './character-directives';
-import {InitCapsPipe} from './init-caps-pipe'
-import {SortCharactersPipe} from './sort-characters-pipe'
-import {FilterTextComponent} from './filter-text-component';
-import {FilterService} from './filter-service';
+import {FilterService} from '../blocks/filter-service';
+import {FilterTextComponent} from '../blocks/filter-text-component';
+import {InitCapsPipe} from '../blocks/init-caps-pipe'
+import {CharacterService} from '../core/character-service';
+import {Character} from '../core/character';
+import {SortCharactersPipe} from '../core/sort-characters-pipe'
+import {TABA_DIRECTIVES} from '../core/taba-directives';
+import {Routes} from '../route-config';
 
-@Component({ selector: 'my-characters' })
+@Component({ selector: 'taba-characters' })
 @View({
-  templateUrl: 'app/characters-component.html',
-  directives: [CHARACTER_DIRECTIVES, FilterTextComponent],
-  styleUrls: ['app/characters-component.css'],
+  templateUrl: './app/characters/characters-component.html',
+  directives: [TABA_DIRECTIVES, FilterTextComponent],
+  styleUrls: ['./app/characters/characters-component.css'],
   pipes: [InitCapsPipe, SortCharactersPipe]
 })
 export class CharactersComponent {

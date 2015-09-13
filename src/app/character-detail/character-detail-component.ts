@@ -1,13 +1,13 @@
 import {Component, View} from 'angular2/angular2';
 import {RouteParams} from 'angular2/router';
-import {Character} from './character';
-import {CharacterService} from './character-service';
-import {CHARACTER_DIRECTIVES} from './character-directives';
+import {Character} from '../core/character';
+import {CharacterService} from '../core/character-service';
+import {TABA_DIRECTIVES} from '../core/taba-directives';
 
-@Component({selector: 'my-character-detail'})
+@Component({selector: 'taba-character-detail'})
 @View({
-  templateUrl: 'app/character-detail-component.html',
-  directives: [CHARACTER_DIRECTIVES]
+  templateUrl: './app/character-detail/character-detail-component.html',
+  directives: [TABA_DIRECTIVES]
 })
 export class CharacterDetailComponent {
   character: Character = <Character>{};
