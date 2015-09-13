@@ -17,8 +17,8 @@ import {FilterService} from './filter-service';
   pipes: [InitCapsPipe, SortCharactersPipe]
 })
 export class CharactersComponent {
-  public filteredCharacters: Array<Character>;
-  private _characters: Array<Character>;
+  public filteredCharacters: Character[];
+  private _characters: Character[];
   public currentCharacter: Character;
   public filterText = '';
 

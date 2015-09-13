@@ -7,8 +7,9 @@ export class CharacterService {
 	constructor(private _http: Http) {}
 
 	getCharacters(): Promise<Character[]> {
-		return this._http.get('app/characters.json')
+		let promise = this._http.get('app/characters.json')
 			.toRx().map((response: any) => response.json()).toPromise();
+		return promise;
 	}
 
 	getCharacter(id: number) {

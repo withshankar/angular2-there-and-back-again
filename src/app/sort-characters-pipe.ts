@@ -3,7 +3,7 @@ import {Character} from './character';
 
 @Pipe({ name: 'sortCharacters' })
 export class SortCharactersPipe {
-  transform(value: Array<Character>) {
+  transform(value: Character[]) {
     if (!value || !value.sort) { return value; }
 
     return value.sort((a: Character, b: Character) => {
