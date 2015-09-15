@@ -1,5 +1,5 @@
 <div>
-  <h2>My Characters</h2>
+  <h2>Characters</h2>
   <filter-text [text]="filterText" (changed)="filterChanged($event)"></filter-text>
   <ul class="characters">
     <li *ng-for="#character of filteredCharacters | sortCharacters"
