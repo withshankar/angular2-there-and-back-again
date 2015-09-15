@@ -3,7 +3,7 @@ import {TABA_DIRECTIVES} from '../core/taba-directives';
 
 @Component({ selector: 'taba-dashboard' })
 @View({
-	templateUrl: './app/dashboard/dashboard-component.html',
+	templateUrl: './app/dashboard/dashboard.component.html',
   directives: [TABA_DIRECTIVES]
 })
 export class DashboardComponent {

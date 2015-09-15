@@ -1,5 +1,4 @@
-import { Component, View, OnChanges, EventEmitter } from 'angular2/angular2';
-import {FORM_DIRECTIVES} from 'angular2/angular2';
+import { Component, EventEmitter, FORM_DIRECTIVES, OnChanges,View } from 'angular2/angular2';
 
 @Component({
   selector: 'filter-text',
