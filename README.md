@@ -1,24 +1,34 @@
-# Getting Started
+# Angular 2 - There and Back Again
+
+Example with a most of the major Angular concepts.
+
+## Pre-Requisites
 
 1. Must install pre-requisites
 
 	```bash
-	npm install -g tsd typescript live-server
+	npm install -g typescript live-server
 	```
+
+## Getting Started
+
+1. Run `npm install`
 
 1. Run the TypeScript compiler and watch for changes `npm run tsc`
 
 1. Open 2nd terminal and launch the app in the browser `npm start`
-
 
 ## Notes
 
 - Add redirectTo and/or otherwise routes
 - Update file names with dots when SystemJS 0.19 lands
 - Fix http as it evolves
+- Fix how typings work
+
+
 
 ## From Scratch
-
+(draft)
 
 1. Create empty `package.json`
 

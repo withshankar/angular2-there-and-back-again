@@ -1,6 +1,7 @@
-typings
-src/**/*.js
-*.map
 node_modules
 jspm_packages
 bower_components
+typings
+
+src/**/*.js
+src/**/*.map
