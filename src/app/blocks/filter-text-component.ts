@@ -1,11 +1,10 @@
-import { Component, View, LifecycleEvent, EventEmitter } from 'angular2/angular2';
+import { Component, View, OnChanges, EventEmitter } from 'angular2/angular2';
 import {FORM_DIRECTIVES} from 'angular2/angular2';
 
 @Component({
   selector: 'filter-text',
   events: ['changed'],
-  properties: ['text'],
-  lifecycle: [LifecycleEvent.onChange]
+  properties: ['text']
 })
 @View({
   template: `
@@ -18,7 +17,7 @@ import {FORM_DIRECTIVES} from 'angular2/angular2';
   `,
   directives: [FORM_DIRECTIVES]
 })
-export class FilterTextComponent {
+export class FilterTextComponent implements OnChanges {
   public filter: any;
   public changed: EventEmitter;
 
@@ -27,12 +26,12 @@ export class FilterTextComponent {
     this.changed = new EventEmitter();
   }
 
+  onChanges(changes: any) {
+    console.log(changes);
+  }
+
   filterChanged(event: any) {
     event.preventDefault();
     this.changed.next(this.filter);
-  }
-
-  onChange(changes: any) {
-    console.log(changes);
   }
 }
