@@ -5,4 +5,12 @@ import {FilterService} from './blocks/filter-service';
 import {CharacterService} from './core/character-service';
 import {AppComponent} from './app-component';
 
-bootstrap(AppComponent, [HTTP_BINDINGS, ROUTER_BINDINGS, FilterService, CharacterService]);
+bootstrap(AppComponent, [
+	HTTP_BINDINGS,
+	ROUTER_BINDINGS,
+	FilterService,
+	CharacterService
+]).then(
+	success => console.log(`Bootstrap success`),
+	error => console.log(error)
+);
