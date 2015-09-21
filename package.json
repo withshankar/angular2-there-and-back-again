@@ -2,7 +2,8 @@
   "name": "angular2-there-and-back-again",
   "version": "0.0.1",
   "scripts": {
-    "tsd": "tsd reinstall -ro --config src/tsd.json",
+    "postinstall": "npm run tsd",
+    "tsd": "tsd link --config src/tsd.json && tsd reinstall -r -o --config src/tsd.json",
     "tsc": "tsc -p src -w",
     "start": "live-server --open=src"
   },
