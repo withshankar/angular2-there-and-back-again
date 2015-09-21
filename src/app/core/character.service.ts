@@ -12,7 +12,9 @@ export class CharacterService {
 		return promise;
 	}
 
-	getCharacter(id: number) {
+    getCharacter(id: number) {
+        let heroes: string[];
+        heroes.length = 0;
 		return this.getCharacters().then((characters) => { return characters.filter((c) => {
 			return c.id === id;
 		})[0]});

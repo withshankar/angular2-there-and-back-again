@@ -6,13 +6,13 @@ import {InitCapsPipe} from '../blocks/init-caps.pipe'
 import {CharacterService} from '../core/character.service';
 import {Character} from '../core/character';
 import {SortCharactersPipe} from '../core/sort-characters.pipe'
-import {TABA_DIRECTIVES} from '../core/taba.constants';
+import {COMMON_DIRECTIVES} from '../core/constants';
 import {Routes} from '../route.config';
 
 @Component({ selector: 'taba-characters' })
 @View({
   templateUrl: './app/characters/characters.component.html',
-  directives: [TABA_DIRECTIVES, FilterTextComponent],
+  directives: [COMMON_DIRECTIVES, FilterTextComponent],
   styleUrls: ['./app/characters/characters.component.css'],
   pipes: [InitCapsPipe, SortCharactersPipe]
 })
