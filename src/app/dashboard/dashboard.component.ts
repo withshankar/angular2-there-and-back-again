@@ -1,9 +1,9 @@
 import {Component, View} from 'angular2/angular2';
-import {TABA_DIRECTIVES} from '../core/taba-directives';
+import {TABA_DIRECTIVES} from '../core/taba.constants';
 
 @Component({ selector: 'taba-dashboard' })
 @View({
-	templateUrl: './app/dashboard/dashboard-component.html',
+	templateUrl: './app/dashboard/dashboard.component.html',
   directives: [TABA_DIRECTIVES]
 })
 export class DashboardComponent {

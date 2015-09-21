@@ -1,6 +1,6 @@
-import {CharactersComponent} from './characters/characters-component';
-import {CharacterDetailComponent} from './character-detail/character-detail-component';
-import {DashboardComponent} from './dashboard/dashboard-component';
+import {CharactersComponent} from './characters/characters.component';
+import {CharacterDetailComponent} from './character-detail/character-detail.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
 
 export var Routes = {
 	dashboard: {

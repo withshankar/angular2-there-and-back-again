@@ -21,10 +21,9 @@ Example with a most of the major Angular concepts.
 ## Notes
 
 - Add redirectTo and/or otherwise routes
-- Update file names with dots when SystemJS 0.19 lands
 - Fix http as it evolves
-- Fix how typings work
-
+- Fix how typings work (currently copying the typings folder into src)
+- Manual typings fix https://github.com/angular/angular/issues/4279
 
 
 ## From Scratch

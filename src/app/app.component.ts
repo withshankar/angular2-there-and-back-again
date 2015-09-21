@@ -1,7 +1,7 @@
 import {View, Component} from 'angular2/angular2';
 import {RouteConfig} from 'angular2/router';
-import {Routes, APP_ROUTES} from './route-config';
-import {TABA_DIRECTIVES} from './core/taba-directives';
+import {Routes, APP_ROUTES} from './route.config';
+import {TABA_DIRECTIVES} from './core/taba.constants';
 
 @Component({ selector: 'taba-app' })
 @View({
