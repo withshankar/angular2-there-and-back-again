@@ -19,7 +19,7 @@ import {Routes} from '../route.config';
 export class CharactersComponent {
   public filteredCharacters: Character[];
   private _characters: Character[];
-  public currentCharacter: Character;
+  private _currentCharacter: Character;
   public filterText = '';
 
   dataAsync: Promise<string>;
@@ -27,7 +27,7 @@ export class CharactersComponent {
   constructor(private _filterService: FilterService,
     private _characterService: CharacterService, private _router: Router) {
 
-    this.filteredCharacters = this.Characters;
+    this.filteredCharacters = this.characters;
     this.dataAsync = new Promise(function(resolve, reject) {
       setTimeout(function() {
         resolve('data from promise');
@@ -35,13 +35,20 @@ export class CharactersComponent {
     });
   }
 
-  get Characters() {
-    if (this._characters) { return this._characters; }
+  get currentCharacter() { return this._currentCharacter || this._characters[0]; }
 
+  set currentCharacter(character) { this._currentCharacter = character; }
+
+  get characters() { return this._characters || this.getCharacters(); }
+
+  getCharacters() {
+    this.currentCharacter = undefined;
+    this._characters = [];
     this._characterService.getCharacters()
-      .then(Characters =>
-        this._characters = this.filteredCharacters = Characters
+      .then(characters =>
+        this._characters = this.filteredCharacters = characters
       );
+
     return this._characters;
   }
 
