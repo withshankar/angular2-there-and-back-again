@@ -19,7 +19,7 @@ import {Routes} from '../route.config';
 export class CharactersComponent {
   public filteredCharacters: Character[];
   private _characters: Character[];
-  private _currentCharacter: Character;
+  public currentCharacter: Character;
   public filterText = '';
 
   dataAsync: Promise<string>;
@@ -34,10 +34,6 @@ export class CharactersComponent {
       }, 500)
     });
   }
-
-  get currentCharacter() { return this._currentCharacter || this._characters[0]; }
-
-  set currentCharacter(character) { this._currentCharacter = character; }
 
   get characters() { return this._characters || this.getCharacters(); }
 
