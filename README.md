@@ -4,11 +4,7 @@ Example with a most of the major Angular concepts.
 
 ## Pre-Requisites
 
-1. Must install pre-requisites
-
-	```bash
-	npm install -g typescript live-server
-	```
+1. Must install pre-requisites `npm install typescript live-server tsd@0.6.5-beta.2 -g`
 
 ## Getting Started
 
@@ -22,9 +18,8 @@ Example with a most of the major Angular concepts.
 
 - Add redirectTo and/or otherwise routes
 - Fix http as it evolves
-- Fix how typings work (currently copying the typings folder into src)
-- Manual typings fix https://github.com/angular/angular/issues/4279
-
+- Manual typings fix for Pipes https://github.com/angular/angular/issues/4279
+- Update to use tsd 0.6.5 when out of beta
 
 ## From Scratch
 (draft)
