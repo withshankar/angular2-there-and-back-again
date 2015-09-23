@@ -58,7 +58,7 @@ export class CharactersComponent {
 
   onSelect(character: Character) { this.currentCharacter = character; }
 
-  filterChanged(data: string) {
-    this.filteredCharacters = this._filterService.filter(data, ['id', 'name'], this._characters);
+  filterChanged(searchText: string) {
+    this.filteredCharacters = this._filterService.filter(searchText, ['id', 'name'], this._characters);
   }
 }
