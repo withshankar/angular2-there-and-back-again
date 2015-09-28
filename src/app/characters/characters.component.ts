@@ -1,4 +1,4 @@
-import {Component, View} from 'angular2/angular2';
+import {Component, OnInit, View} from 'angular2/angular2';
 import {Router} from 'angular2/router';
 import {FilterService} from '../blocks/filter.service';
 import {FilterTextComponent} from '../blocks/filter-text.component';
@@ -16,9 +16,9 @@ import {Routes} from '../route.config';
   styleUrls: ['./app/characters/characters.component.css'],
   pipes: [InitCapsPipe, SortCharactersPipe]
 })
-export class CharactersComponent {
+export class CharactersComponent implements OnInit {
   public filteredCharacters: Character[];
-  private _characters: Character[];
+  public characters: Character[];
   public currentCharacter: Character;
   public filterText = '';
 
@@ -35,17 +35,15 @@ export class CharactersComponent {
     });
   }
 
-  get characters() { return this._characters || this.getCharacters(); }
-
   getCharacters() {
     this.currentCharacter = undefined;
-    this._characters = [];
+    this.characters = [];
     this._characterService.getCharacters()
       .then(characters =>
-        this._characters = this.filteredCharacters = characters
+        this.characters = this.filteredCharacters = characters
       );
 
-    return this._characters;
+    return this.characters;
   }
 
   getSelectedClass(character: Character) {
@@ -56,9 +54,11 @@ export class CharactersComponent {
     this._router.navigate(`${Routes.detail.as}/${this.currentCharacter.id}`);
   }
 
+  onInit() { return this.characters = this.getCharacters(); }
+
   onSelect(character: Character) { this.currentCharacter = character; }
 
   filterChanged(searchText: string) {
-    this.filteredCharacters = this._filterService.filter(searchText, ['id', 'name'], this._characters);
+    this.filteredCharacters = this._filterService.filter(searchText, ['id', 'name'], this.characters);
   }
 }
