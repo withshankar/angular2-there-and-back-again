@@ -1,10 +1,9 @@
-import {Component, View} from 'angular2/angular2';
-import {COMMON_DIRECTIVES} from '../core/constants';
+import {Component, View, FORM_DIRECTIVES} from 'angular2/angular2';
 
 @Component({ selector: 'taba-dashboard' })
 @View({
     templateUrl: './app/dashboard/dashboard.component.html',
-    directives: [COMMON_DIRECTIVES]
+    directives: [FORM_DIRECTIVES]
 })
 export class DashboardComponent {
     firstName = 'john';
