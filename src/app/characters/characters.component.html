@@ -8,8 +8,8 @@
       <span class="badge">{{character.id}}</span> {{character.name | initCaps}}</a>
     </li>
   </ul>
-  <div *ng-if="currentCharacter">
-    <h2>{{currentCharacter.name}} is my Character</h2>
+  <div *ng-if="selectedCharacter">
+    <h2>{{selectedCharacter.name}} is my Character</h2>
 		<button (click)="goDetail()">View Details</button>
   </div>
 </div>

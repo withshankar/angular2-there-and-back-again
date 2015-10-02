@@ -18,7 +18,7 @@ import {Routes} from '../route.config';
 export class CharactersComponent implements OnInit {
   public filteredCharacters: Character[];
   public characters: Character[];
-  public currentCharacter: Character;
+  public selectedCharacter: Character;
   public filterText = '';
 
   dataAsync: Promise<string>;
@@ -35,7 +35,7 @@ export class CharactersComponent implements OnInit {
   }
 
   getCharacters() {
-    this.currentCharacter = undefined;
+    this.selectedCharacter = undefined;
     this.characters = [];
     this._characterService.getCharacters()
       .then(characters =>
@@ -46,16 +46,16 @@ export class CharactersComponent implements OnInit {
   }
 
   getSelectedClass(character: Character) {
-    return { 'selected': character === this.currentCharacter };
+    return { 'selected': character === this.selectedCharacter };
   }
 
   goDetail() {
-    this._router.navigate(`${Routes.detail.as}/${this.currentCharacter.id}`);
+    this._router.navigate(`${Routes.detail.as}/${this.selectedCharacter.id}`);
   }
 
   onInit() { return this.characters = this.getCharacters(); }
 
-  onSelect(character: Character) { this.currentCharacter = character; }
+  onSelect(character: Character) { this.selectedCharacter = character; }
 
   filterChanged(searchText: string) {
     this.filteredCharacters = this._filterService.filter(searchText, ['id', 'name'], this.characters);
