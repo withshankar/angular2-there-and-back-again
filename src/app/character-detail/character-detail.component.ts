@@ -20,6 +20,7 @@ export class CharacterDetailComponent {
   }
 
   gotoCharacters() {
-    this._router.navigate(`${Routes.characters.as}`);
+    //TODO: implement navigate() with the tuple
+    this._router.navigateByUrl(`${Routes.characters.as.toLowerCase()}`);
   }
 }

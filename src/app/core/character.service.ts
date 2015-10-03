@@ -8,19 +8,24 @@ export class CharacterService {
 
 	constructor(private _http: Http) {}
 
-	getCharacters(): Rx.IPromise<Character[]> {
+	getCharacters(): Promise<Character[]> {
+		// this._http.get('people.json').toRx().subscribe((res: any) => {
+		// 	this.people = res.json();
+		// });
+
 		this.characters.length = 0;
 		let promise = this._http.get('characters.json')
 			.toRx().map((response: any) => response.json()).toPromise()
-			.then(characters => {
+			.then((characters: Character[]) => {
 				this.characters.push(...characters);
 				return this.characters;
 			})
-			//TODO: fix catch
-			//.catch(e => this._fetchFailed(e)) // want we want to say
-			// baroque way to ensure promise stays Promise<Hero[]>
-			.then<Character[]>(_ => _, e => this._fetchFailed(e));
-		return promise;
+			// //TODO: fix catch
+			// //.catch(e => this._fetchFailed(e)) // want we want to say
+			// // baroque way to ensure promise stays Promise<Hero[]>
+			// .then<Character[]>(_ => _, e => this._fetchFailed(e));
+		  .then((_: any) => _, (e: any) => this._fetchFailed(e));
+			return promise;
 	}
 
 	private _fetchFailed(error:any) {

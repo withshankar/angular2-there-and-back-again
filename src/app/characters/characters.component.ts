@@ -50,7 +50,8 @@ export class CharactersComponent implements OnInit {
   }
 
   goDetail() {
-    this._router.navigate(`${Routes.detail.as}/${this.selectedCharacter.id}`);
+    //TODO: implement navigate() with the tuple
+    this._router.navigateByUrl(`${Routes.detail.as.toLowerCase()}/${this.selectedCharacter.id}`);
   }
 
   onInit() { return this.characters = this.getCharacters(); }

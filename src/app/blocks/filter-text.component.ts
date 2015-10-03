@@ -4,7 +4,7 @@ import {FORM_DIRECTIVES} from 'angular2/angular2';
 @Component({
   selector: 'filter-text',
   events: ['changed'],
-  properties: ['text']
+  inputs: ['text']
 })
 @View({
   template: `
