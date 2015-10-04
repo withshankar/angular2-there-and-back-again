@@ -2,10 +2,6 @@
 
 Example with a most of the major Angular concepts.
 
-## Pre-Requisites
-
-1. Must install pre-requisites `npm install typescript live-server tsd@0.6.5-beta.2 -g`
-
 ## Getting Started
 
 1. Run `npm install`
@@ -19,7 +15,6 @@ Example with a most of the major Angular concepts.
 - Add redirectTo and/or otherwise routes
 - Fix http as it evolves
 - Manual typings fix for Pipes https://github.com/angular/angular/issues/4279
-- Update to use tsd 0.6.5 when out of beta
 
 ## From Scratch
 (draft)
@@ -33,19 +28,14 @@ Example with a most of the major Angular concepts.
 1. Install npm packages
 
 	```bash
-	npm install --save angular2 systemjs traceur
+	npm install --save --save-exact angular2 systemjs
+	npm install --save-dev typescript tsd live-server
 	```
 
 1. Make a source folder
 
 	```bash
 	mkdir -p src/app
-	```
-
-1. Install typings files
-
-	```bash
-	tsd install angular2 -rosa --config src/tsd.json
 	```
 
 1. Create a `tsconfig.json` file, in an editor
