@@ -15,7 +15,7 @@ export class CharacterService {
 
 		this.characters.length = 0;
 		let promise = this._http.get('characters.json')
-			.toRx().map((response: any) => response.json()).toPromise()
+			.map((response: any) => response.json()).toPromise()
 			.then((characters: Character[]) => {
 				this.characters.push(...characters);
 				return this.characters;
