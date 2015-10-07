@@ -1,27 +1,43 @@
 <div>
 		<h2>Binding</h2>
 
-		<h4>One Way Binding</h4>
+		<h4>Interpolation</h4>
+		<pre>Hello { {firstName }}</pre>
 		<div>Hello {{firstName}}</div>
+		<hr>
 
-		<h4>Binding Without Two-Way</h4>
+		<h4>Property Binding Without Two-Way</h4>
+		<pre>&lt;input [value]="city"></pre>
 		<input [value]="city">
 		<p>City = {{city}}</p>
+		<hr>
 
 		<h4>Binding With Two-Way (Long Form)</h4>
+		<pre>&lt;input [value]="city" (input)="city = $event.target.value"></pre>
 		<input [value]="city" (input)="city = $event.target.value">
 		<p>City = {{city}}</p>
+		<hr>
 
 		<h4>Two-Way Binding (ng-model directive long form)</h4>
+		<pre>&lt;input [ng-model]="firstName" (ng-model)="firstName=$event"/> </pre>
 		<input [ng-model]="firstName" (ng-model)="firstName=$event"/> {{firstName}}
+		<hr>
 
 		<h4>Two-Way Binding (sugar)</h4>
+		<pre>&lt;input [(ng-model)]="lastName" /> </pre>
 		<input [(ng-model)]="lastName" /> {{lastName}}
+		<hr>
 
 		<h4>Two-Way Binding (classic style)</h4>
-		<input bind-ng-model="city" bindon-ng-model="city" /> {{city}}
+		<pre>&lt;input bindon-ng-model="city" /></pre>
+		<input bindon-ng-model="city" /> {{city}}
+		<hr>
 
 		<h4>Local Variables</h4>
+		<pre>
+			&lt;input #mylocalvar/>{ {mylocalvar.value}}
+			&lt;button (click)="addThing(mylocalvar.value)">Add Local Var</button>
+		</pre>
 		<input #mylocalvar/>{{mylocalvar.value}}
 		<button (click)="addThing(mylocalvar.value)">Add Local Var</button>
 </div>
