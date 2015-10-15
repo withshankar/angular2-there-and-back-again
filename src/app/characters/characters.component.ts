@@ -1,4 +1,4 @@
-import {Component, OnInit, View, CORE_DIRECTIVES} from 'angular2/angular2';
+import {Component, CORE_DIRECTIVES, OnInit} from 'angular2/angular2';
 import {Router} from 'angular2/router';
 import {FilterService} from '../blocks/filter.service';
 import {FilterTextComponent} from '../blocks/filter-text.component';
@@ -8,8 +8,8 @@ import {Character} from '../core/character';
 import {SortCharactersPipe} from '../core/sort-characters.pipe'
 import {Routes} from '../route.config';
 
-@Component({ selector: 'taba-characters' })
-@View({
+@Component({
+  selector: 'taba-characters',
   templateUrl: './app/characters/characters.component.html',
   directives: [CORE_DIRECTIVES, FilterTextComponent],
   styleUrls: ['./app/characters/characters.component.css'],

@@ -60,9 +60,7 @@ Example with a most of the major Angular concepts.
 	import {bootstrap, Component, View} from 'angular2/angular2';
 
 	@Component({
-		selector: 'app'
-	})
-	@View({
+		selector: 'app',
 		template: '<h1>Dashboard</h1>'
 	})
 	export class AppComponent { }

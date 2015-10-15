@@ -1,13 +1,13 @@
-import {Component, View, FORM_DIRECTIVES} from 'angular2/angular2';
+import {Component, CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/angular2';
 import {RouteParams, Router} from 'angular2/router';
 import {Character} from '../core/character';
 import {CharacterService} from '../core/character.service';
 import {Routes} from '../route.config';
 
-@Component({selector: 'taba-character-detail'})
-@View({
+@Component({
+  selector: 'taba-character-detail',
   templateUrl: './app/character-detail/character-detail.component.html',
-  directives: [FORM_DIRECTIVES]
+  directives: [CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
 export class CharacterDetailComponent {
   character: Character = <Character>{};

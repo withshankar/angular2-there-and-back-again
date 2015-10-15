@@ -1,12 +1,10 @@
-import { Component, View, OnChanges, EventEmitter } from 'angular2/angular2';
+import {Component, EventEmitter, OnChanges} from 'angular2/angular2';
 import {FORM_DIRECTIVES} from 'angular2/angular2';
 
 @Component({
   selector: 'filter-text',
   events: ['changed'],
-  inputs: ['text']
-})
-@View({
+  inputs: ['text'],
   template: `
     <form>
          Filter:

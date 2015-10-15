@@ -1,10 +1,9 @@
-import {View, Component} from 'angular2/angular2';
+import {Component} from 'angular2/angular2';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import {Routes, APP_ROUTES} from './route.config';
-import { foo } from './foo';
 
-@Component({ selector: 'taba-app' })
-@View({
+@Component({
+  selector: 'taba-app',
   template: `
     <a [router-link]="['/${Routes.dashboard.as}']" class="router-link">Dashboard</a>
     <a [router-link]="['/${Routes.characters.as}']" class="router-link">Characters</a>
