@@ -11,6 +11,6 @@
   <div *ng-if="selectedCharacter">
     <h2>{{selectedCharacter.name}} is my Character</h2>
 		<button (click)="goDetail()">View Details</button>
+    <taba-character-detail [character]="selectedCharacter"></taba-character-detail>
   </div>
 </div>
-Async Piped Data from 500ms delay = {{ dataAsync | async | json }}

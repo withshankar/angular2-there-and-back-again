@@ -40,4 +40,6 @@
 		</pre>
 		<input #mylocalvar/>{{mylocalvar.value}}
 		<button (click)="addThing(mylocalvar.value)">Add Local Var</button>
+
+		<div>Async Piped Data from 500ms delay = {{ dataAsync | async | json }}</div>
 </div>

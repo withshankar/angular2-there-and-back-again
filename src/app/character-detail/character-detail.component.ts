@@ -1,4 +1,4 @@
-import {Component, CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/angular2';
+import {Component, CORE_DIRECTIVES, FORM_DIRECTIVES, OnChanges, OnInit} from 'angular2/angular2';
 import {RouteParams, Router} from 'angular2/router';
 import {Character} from '../core/character';
 import {CharacterService} from '../core/character.service';
@@ -7,20 +7,29 @@ import {Routes} from '../route.config';
 @Component({
   selector: 'taba-character-detail',
   templateUrl: './app/character-detail/character-detail.component.html',
-  directives: [CORE_DIRECTIVES, FORM_DIRECTIVES]
+  directives: [CORE_DIRECTIVES, FORM_DIRECTIVES],
+  inputs: ['character']
 })
-export class CharacterDetailComponent {
-  character: Character = <Character>{};
+export class CharacterDetailComponent implements OnChanges, OnInit {
+  character: Character;
 
   constructor(private _characterService: CharacterService,
-    private _routeParams: RouteParams, private _router: Router) {
-
-    let id = +_routeParams.get('id');
-    this._characterService.getCharacter(id).then(character => this.character = character);
-  }
+    private _routeParams: RouteParams, private _router: Router) { }
 
   gotoCharacters() {
     //TODO: implement navigate() with the tuple
     this._router.navigateByUrl(`${Routes.characters.as.toLowerCase()}`);
+  }
+
+  onChanges(changes: any) {
+    // On every change of the inputs
+    console.log(changes);
+  }
+
+  onInit() {
+    if (!this.character) {
+      let id = +this._routeParams.get('id');
+      this._characterService.getCharacter(id).then(character => this.character = character);
+    }
   }
 }
