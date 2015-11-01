@@ -10,7 +10,7 @@ export var Routes = {
 		component: DashboardComponent
 	},
 	binding: {
-		path: '/binding123',
+		path: '/binding',
 		as: 'Binding',
 		component: BindingComponent
 	},
