@@ -5,9 +5,11 @@ import {Routes, APP_ROUTES} from './route.config';
 @Component({
   selector: 'taba-app',
   template: `
-    <a [router-link]="['/${Routes.dashboard.as}']" class="router-link">Dashboard</a>
-    <a [router-link]="['/${Routes.characters.as}']" class="router-link">Characters</a>
-    <a [router-link]="['/${Routes.binding.as}']" class="router-link">Binding Demo</a>
+    <a [router-link]="['${Routes.dashboard.as}']" class="router-link">Dashboard</a>
+    <a [router-link]="['${Routes.characters.as}']" class="router-link">Characters</a>
+    <a [router-link]="['${Routes.binding.as}']" class="router-link">Binding Demo</a>
+    <a [router-link]="['/Parent/Child1']" class="router-link">child 1</a>
+    <a [router-link]="['/Parent/Child2']" class="router-link">child 2</a>
     <router-outlet></router-outlet>
   `,
   styles: [`
@@ -19,6 +21,4 @@ import {Routes, APP_ROUTES} from './route.config';
   directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig(APP_ROUTES)
-export class AppComponent {
-  go() {}
-}
+export class AppComponent { }
