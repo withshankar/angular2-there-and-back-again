@@ -5,9 +5,9 @@ import {ROUTES, ROUTE_NAMES} from './routes';
 @Component({
   selector: 'taba-app',
   template: `
-    <a [router-link]="['Dashboard']" class="router-link">Dashboard</a>
-    <a [router-link]="['Characters']" class="router-link">Characters</a>
-    <a [router-link]="['Binding']" class="router-link">Binding Demo</a>
+    <a [router-link]="[routes.dashboard]" class="router-link">Dashboard</a>
+    <a [router-link]="[routes.characters]" class="router-link">Characters</a>
+    <a [router-link]="[routes.binding]" class="router-link">Binding Demo</a>
     <router-outlet></router-outlet>
   `,
   styles: [`
@@ -19,5 +19,4 @@ import {ROUTES, ROUTE_NAMES} from './routes';
   directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig(ROUTES)
-export class AppComponent {
-}
+export class AppComponent {}
