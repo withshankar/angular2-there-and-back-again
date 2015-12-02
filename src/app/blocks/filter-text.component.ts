@@ -15,8 +15,8 @@ import {FORM_DIRECTIVES} from 'angular2/angular2';
   directives: [FORM_DIRECTIVES]
 })
 export class FilterTextComponent {
-  public filter: any;
-  public changed: EventEmitter<any>;
+  public filter: string;
+  public changed: EventEmitter<string>;
 
   constructor() {
     this.changed = new EventEmitter();
