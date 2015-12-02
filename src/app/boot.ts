@@ -10,7 +10,6 @@ bootstrap(AppComponent, [
 	ROUTER_PROVIDERS,
 	FilterService,
 	CharacterService
-]).then(
-	success => console.log(`Bootstrap success`),
-	error => console.log(error)
-);
+])
+  .then(success => console.log(`Bootstrap success`))
+  .catch(error => console.log(error));
