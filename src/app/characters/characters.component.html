@@ -5,7 +5,7 @@
     <li *ng-for="#character of filteredCharacters | sortCharacters"
       [ng-class]="getSelectedClass(character)"
       (click)="onSelect(character)">
-      <span class="badge">{{character.id}}</span> {{character.name | initCaps}}</a>
+      <span class="badge">{{character.id}}</span> {{character.name | initCaps}}
     </li>
   </ul>
   <div *ng-if="selectedCharacter">
