@@ -19,4 +19,6 @@ import {ROUTES, ROUTE_NAMES} from './routes';
   directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig(ROUTES)
-export class AppComponent {}
+export class AppComponent {
+  public routes = ROUTE_NAMES;
+}
