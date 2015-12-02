@@ -20,5 +20,4 @@ import {ROUTES, ROUTE_NAMES} from './routes';
 })
 @RouteConfig(ROUTES)
 export class AppComponent {
-  go() {}
 }
