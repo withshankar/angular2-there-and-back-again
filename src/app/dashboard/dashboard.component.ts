@@ -2,7 +2,7 @@ import {Component, CORE_DIRECTIVES, FORM_DIRECTIVES, OnInit} from 'angular2/angu
 import {Router} from 'angular2/router';
 import {Character} from './../core/character';
 import {CharacterService} from './../core/character.service';
-import {Routes} from './../route.config';
+import {ROUTE_NAMES} from './../routes';
 
 @Component({
   selector: 'my-dashboard',
@@ -15,10 +15,10 @@ export class DashboardComponent implements OnInit {
 
   constructor(private _characterService: CharacterService, private _router: Router) { }
 
-	onInit() { this.characters = this.getcharacters(); }
+	ngOnInit() { this.characters = this.getcharacters(); }
 
   gotoDetail(character: Character) {
-    this._router.navigate([`/${Routes.detail.as}`, { id: character.id }]);
+    this._router.navigate([`/${ROUTE_NAMES.characterDetail}`, { id: character.id }]);
   }
 
   getcharacters() {

@@ -1,13 +1,13 @@
 import {Component} from 'angular2/angular2';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
-import {Routes, APP_ROUTES} from './route.config';
+import {ROUTES, ROUTE_NAMES} from './routes';
 
 @Component({
   selector: 'taba-app',
   template: `
-    <a [router-link]="['/${Routes.dashboard.as}']" class="router-link">Dashboard</a>
-    <a [router-link]="['/${Routes.characters.as}']" class="router-link">Characters</a>
-    <a [router-link]="['/${Routes.binding.as}']" class="router-link">Binding Demo</a>
+    <a [router-link]="['Dashboard']" class="router-link">Dashboard</a>
+    <a [router-link]="['Characters']" class="router-link">Characters</a>
+    <a [router-link]="['Binding']" class="router-link">Binding Demo</a>
     <router-outlet></router-outlet>
   `,
   styles: [`
@@ -18,7 +18,7 @@ import {Routes, APP_ROUTES} from './route.config';
   `],
   directives: [ROUTER_DIRECTIVES]
 })
-@RouteConfig(APP_ROUTES)
+@RouteConfig(ROUTES)
 export class AppComponent {
   go() {}
 }

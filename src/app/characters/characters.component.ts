@@ -6,7 +6,7 @@ import {CharacterService} from '../core/character.service';
 import {FilterService} from '../blocks/filter.service';
 import {FilterTextComponent} from '../blocks/filter-text.component';
 import {InitCapsPipe} from '../blocks/init-caps.pipe'
-import {Routes} from '../route.config';
+import {ROUTE_NAMES} from '../routes';
 import {SortCharactersPipe} from '../core/sort-characters.pipe'
 
 @Component({
@@ -42,10 +42,10 @@ export class CharactersComponent implements OnInit {
 
   goDetail() {
     //TODO: implement navigate() with the tuple
-    this._router.navigateByUrl(`${Routes.detail.as.toLowerCase()}/${this.selectedCharacter.id}`);
+    this._router.navigateByUrl(`${ROUTE_NAMES.characterDetail.toLowerCase()}/${this.selectedCharacter.id}`);
   }
 
-  onInit() { return this.characters = this.getCharacters(); }
+  ngOnInit() { return this.characters = this.getCharacters(); }
 
   onSelect(character: Character) { this.selectedCharacter = character; }
 
