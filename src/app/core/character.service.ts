@@ -14,18 +14,21 @@ export class CharacterService {
 		// });
 
 		this.characters.length = 0;
-		let promise = this._http.get('characters.json')
-			.map((response: any) => response.json()).toPromise()
-			.then((characters: Character[]) => {
+    let promise = this._http.get('characters.json')
+      .map((response: any) => response.json()).toPromise(null)
+  		.then((characters: Character[]) => {
 				this.characters.push(...characters);
 				return this.characters;
 			})
-			// //TODO: fix catch
+
+  		// //TODO: fix catch
 			// //.catch(e => this._fetchFailed(e)) // want we want to say
 			// // baroque way to ensure promise stays Promise<Hero[]>
 			// .then<Character[]>(_ => _, e => this._fetchFailed(e));
-		  .then((_: any) => _, (e: any) => this._fetchFailed(e));
-			return promise;
+
+      .then((_: any) => _, (e: any) => this._fetchFailed(e));
+
+  		return promise;
 	}
 
 	private _fetchFailed(error:any) {
