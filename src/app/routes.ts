@@ -13,7 +13,7 @@ export const ROUTE_NAMES = {
 
 export const ROUTES: RouteDefinition[] = [
   { path: '/', redirectTo: [ROUTE_NAMES.dashboard] },
-  { path: '/', name: ROUTE_NAMES.dashboard, component: DashboardComponent	},
+  { path: '/dashboard', name: ROUTE_NAMES.dashboard, component: DashboardComponent	},
 	{ path: '/binding', name: ROUTE_NAMES.binding, component: BindingComponent	},
 	{ path: '/characters', name: ROUTE_NAMES.characters, component: CharactersComponent	},
 	{ path: '/detail/:id', name: ROUTE_NAMES.characterDetail, component: CharacterDetailComponent }
