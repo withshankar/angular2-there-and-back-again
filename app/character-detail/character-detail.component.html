@@ -1,9 +1,9 @@
-<div *ng-if="character">
+<div *ngIf="character">
 	<h2>View {{character.name | uppercase}} details!</h2>
 	<div><label>id: </label>{{character.id}}</div>
 	<div>
 		<label>name: </label>
-		<input [(ng-model)]="character.name" placeholder="name"></input>
+		<input [(ngModel)]="character.name" placeholder="name">
 	</div>
 	<button (click)="gotoCharacters()">Back</button>
 </div>

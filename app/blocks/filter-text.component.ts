@@ -1,5 +1,4 @@
-import {Component, EventEmitter} from 'angular2/angular2';
-import {FORM_DIRECTIVES} from 'angular2/angular2';
+import {Component, EventEmitter} from 'angular2/core';
 
 @Component({
   selector: 'filter-text',
@@ -8,11 +7,10 @@ import {FORM_DIRECTIVES} from 'angular2/angular2';
     <form>
          Filter:
          <input type="text"
-                [(ng-model)]="filter"
+                [(ngModel)]="filter"
                 (keyup)="filterChanged($event)" />
     </form>
-  `,
-  directives: [FORM_DIRECTIVES]
+  `
 })
 export class FilterTextComponent {
   public filter: string;

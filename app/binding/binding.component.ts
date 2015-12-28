@@ -1,9 +1,8 @@
-import {Component, FORM_DIRECTIVES} from 'angular2/angular2';
+import {Component} from 'angular2/core';
 
 @Component({
   selector: 'taba-binding',
-  templateUrl: 'app/binding/binding.component.html',
-  directives: [FORM_DIRECTIVES]
+  templateUrl: 'app/binding/binding.component.html'
 })
 export class BindingComponent {
   firstName = 'john';

@@ -1,4 +1,4 @@
-import {Component, CORE_DIRECTIVES, OnInit} from 'angular2/angular2';
+import {Component, OnInit} from 'angular2/core';
 import {Router} from 'angular2/router';
 import {Character} from '../core/character';
 import {CharacterDetailComponent} from '../character-detail/character-detail.component';
@@ -6,13 +6,12 @@ import {CharacterService} from '../core/character.service';
 import {FilterService} from '../blocks/filter.service';
 import {FilterTextComponent} from '../blocks/filter-text.component';
 import {InitCapsPipe} from '../blocks/init-caps.pipe'
-import {ROUTE_NAMES} from '../routes';
 import {SortCharactersPipe} from '../core/sort-characters.pipe'
 
 @Component({
   selector: 'taba-characters',
   templateUrl: './app/characters/characters.component.html',
-  directives: [CharacterDetailComponent, CORE_DIRECTIVES, FilterTextComponent],
+  directives: [CharacterDetailComponent, FilterTextComponent],
   styleUrls: ['./app/characters/characters.component.css'],
   pipes: [InitCapsPipe, SortCharactersPipe]
 })
@@ -29,20 +28,17 @@ export class CharactersComponent implements OnInit {
     this.selectedCharacter = undefined;
     this.characters = [];
     this._characterService.getCharacters()
-      .then(characters =>
+      .subscribe((characters: Character[]) => {
         this.characters = this.filteredCharacters = characters
-      );
+        // this.characters = characters.slice(1,5);
+      });
 
     return this.characters;
   }
 
-  getSelectedClass(character: Character) {
-    return { 'selected': character === this.selectedCharacter };
-  }
-
   goDetail() {
     //TODO: implement navigate() with the tuple
-    this._router.navigateByUrl(`${ROUTE_NAMES.characterDetail.toLowerCase()}/${this.selectedCharacter.id}`);
+    this._router.navigate(['CharacterDetail', {id: this.selectedCharacter.id}]);
   }
 
   ngOnInit() { return this.characters = this.getCharacters(); }

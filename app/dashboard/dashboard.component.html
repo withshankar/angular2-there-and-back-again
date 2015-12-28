@@ -1,6 +1,6 @@
 <h3>Top Characters</h3>
 <div class="grid grid-pad">
-	<div *ng-for="#character of characters | slice:0:4" class="col-1-4" (click)="gotoDetail(character)">
+	<div *ngFor="#character of characters" class="col-1-4" (click)="gotoDetail(character)">
 		<div class="module character">
 			<h4>{{character.name}}</h4>
 		</div>

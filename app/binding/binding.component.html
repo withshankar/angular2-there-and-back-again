@@ -18,19 +18,19 @@
 		<p>City = {{city}}</p>
 		<hr>
 
-		<h4>Two-Way Binding (ng-model directive long form)</h4>
-		<pre>&lt;input [ng-model]="firstName" (ng-model)="firstName=$event"/> </pre>
-		<input [ng-model]="firstName" (ng-model)="firstName=$event"/> {{firstName}}
+		<h4>Two-Way Binding (ngModel directive long form)</h4>
+		<pre>&lt;input [ngModel]="firstName" (ngModel)="firstName=$event"/> </pre>
+		<input [ngModel]="firstName" (ngModel)="firstName=$event"/> {{firstName}}
 		<hr>
 
 		<h4>Two-Way Binding (sugar)</h4>
-		<pre>&lt;input [(ng-model)]="lastName" /> </pre>
-		<input [(ng-model)]="lastName" /> {{lastName}}
+		<pre>&lt;input [(ngModel)]="lastName" /> </pre>
+		<input [(ngModel)]="lastName" /> {{lastName}}
 		<hr>
 
 		<h4>Two-Way Binding (classic style)</h4>
-		<pre>&lt;input bindon-ng-model="city" /></pre>
-		<input bindon-ng-model="city" /> {{city}}
+		<pre>&lt;input bindOnNgModel="city" /></pre>
+		<input bindOnNgModel="city" /> {{city}}
 		<hr>
 
 		<h4>Local Variables</h4>

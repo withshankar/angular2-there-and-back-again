@@ -1,13 +1,11 @@
-import {Component, CORE_DIRECTIVES, FORM_DIRECTIVES, OnChanges, OnInit} from 'angular2/angular2';
+import {Component, OnChanges, OnInit} from 'angular2/core';
 import {RouteParams, Router} from 'angular2/router';
 import {Character} from '../core/character';
 import {CharacterService} from '../core/character.service';
-import {ROUTE_NAMES} from '../routes';
 
 @Component({
   selector: 'taba-character-detail',
   templateUrl: './app/character-detail/character-detail.component.html',
-  directives: [CORE_DIRECTIVES, FORM_DIRECTIVES],
   inputs: ['character']
 })
 export class CharacterDetailComponent implements OnChanges, OnInit {
@@ -18,7 +16,7 @@ export class CharacterDetailComponent implements OnChanges, OnInit {
 
   gotoCharacters() {
     //TODO: implement navigate() with the tuple
-    this._router.navigateByUrl(`${ROUTE_NAMES.characters.toLowerCase()}`);
+    this._router.navigate(['Characters']);
   }
 
   ngOnChanges(changes: any) {
@@ -29,7 +27,12 @@ export class CharacterDetailComponent implements OnChanges, OnInit {
   ngOnInit() {
     if (!this.character) {
       let id = +this._routeParams.get('id');
-      this._characterService.getCharacter(id).then(character => this.character = character);
+      this._characterService.getCharacter(id)
+        .subscribe((character: Character) => {
+          this.character = character;
+        });
+
+        // .then(character => this.character = character);
     }
   }
 }
