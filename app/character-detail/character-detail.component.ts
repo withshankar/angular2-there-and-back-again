@@ -2,6 +2,7 @@ import {Component, OnChanges, OnInit} from 'angular2/core';
 import {RouteParams, Router} from 'angular2/router';
 import {Character} from '../core/character';
 import {CharacterService} from '../core/character.service';
+import {CONFIG} from '../config';
 
 @Component({
   selector: 'taba-character-detail',
@@ -15,7 +16,6 @@ export class CharacterDetailComponent implements OnChanges, OnInit {
     private _routeParams: RouteParams, private _router: Router) { }
 
   gotoCharacters() {
-    //TODO: implement navigate() with the tuple
     this._router.navigate(['Characters']);
   }
 
@@ -27,12 +27,16 @@ export class CharacterDetailComponent implements OnChanges, OnInit {
   ngOnInit() {
     if (!this.character) {
       let id = +this._routeParams.get('id');
-      this._characterService.getCharacter(id)
-        .subscribe((character: Character) => {
-          this.character = character;
-        });
 
-        // .then(character => this.character = character);
+      if (CONFIG.useHttpWithRx) {
+        this._characterService.getCharacter(id)
+          .subscribe((character: Character) => {
+            this.character = character;
+          });
+      } else {
+        this._characterService.getCharacter_ViaPromise(id)
+          .then(character => this.character = character);
+      }
     }
   }
 }

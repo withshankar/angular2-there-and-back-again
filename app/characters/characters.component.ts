@@ -7,6 +7,7 @@ import {FilterService} from '../blocks/filter.service';
 import {FilterTextComponent} from '../blocks/filter-text.component';
 import {InitCapsPipe} from '../blocks/init-caps.pipe'
 import {SortCharactersPipe} from '../core/sort-characters.pipe'
+import {CONFIG} from '../config';
 
 @Component({
   selector: 'taba-characters',
@@ -27,17 +28,23 @@ export class CharactersComponent implements OnInit {
   getCharacters() {
     this.selectedCharacter = undefined;
     this.characters = [];
-    this._characterService.getCharacters()
-      .subscribe((characters: Character[]) => {
-        this.characters = this.filteredCharacters = characters
-        // this.characters = characters.slice(1,5);
-      });
+
+    if (CONFIG.useHttpWithRx) {
+      this._characterService.getCharacters()
+        .subscribe((characters: Character[]) => {
+          this.characters = this.filteredCharacters = characters
+        });
+    } else {
+      this._characterService.getCharacters_ViaPromise()
+        .then((characters: Character[]) => {
+          this.characters = this.filteredCharacters = characters
+        });
+    }
 
     return this.characters;
   }
 
   goDetail() {
-    //TODO: implement navigate() with the tuple
     this._router.navigate(['CharacterDetail', {id: this.selectedCharacter.id}]);
   }
 

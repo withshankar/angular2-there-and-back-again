@@ -1,69 +1,64 @@
 import {Injectable} from 'angular2/core';
 import {Http, Response} from 'angular2/http';
 import {Character} from './character';
+import {Observable, Subscription} from 'rxjs';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class CharacterService {
-	characters: Character[] = [];
+  subscription : Subscription<Character>;
 
-	constructor(private _http: Http) {}
+  constructor(private _http: Http) { }
 
-  logError(err: any) {
-    console.error('There was an error: ' + err);
+  getCharacters_ViaPromise() {
+    let promise = this._http.get('characters.json')
+      .map((response: Response) => <Character[]>response.json())
+      .toPromise()
+      .catch(fetchFailed);
+
+    return promise;
   }
 
-	getCharacters() { //} : Subscription<Character[]> {
-		// this._http.get('people.json').toRx().subscribe((res: any) => {
-		// 	this.people = res.json();
-		// });
+  getCharacters() {
+    let o = this._http.get('characters.json')
+      .map((response: Response) => <Character[]>response.json())
 
-		this.characters.length = 0;
+    // TODO: learning moment.
+    // if i want to subscribe here and do something with the data, or handle errors.
+    // i capture the subscription in case i want to kill it later
+    //  ex: this.subscription.unsubscribe()
+    this.subscription = o.subscribe(
+      null, //characters => characters, // Success path
+      err => (err: any) => console.error('There was an error: ' + err), // Failure path
+      () => console.log('getCharacters Completed') // Completed actions
+    );
+
+    // TODO: How do we chain the errors?
+    // TODO: how do i tell the observable i am done and no more is expected? I expected .Completed?
+
+    return o;
+  }
+
+  getCharacter_ViaPromise(id: number) {
     return this._http.get('characters.json')
-      .map((response: Response) => response.json())
-      // .subscribe(
-      //   data => this.characters.push(...data),
-      //   err => this.logError(err),
-      //   () => console.log('Random Quote Complete')
-      // );
-      // Worked prior to beta
-      // .toPromise(null)
-  		// .then((characters: Character[]) => {
-			// 	this.characters.push(...characters);
-			// 	return this.characters;
-			// })
-      // .then((_: any) => _, (e: any) => this._fetchFailed(e));
-  		// return promise;
-
-
-  		// //TODO: fix catch
-			// //.catch(e => this._fetchFailed(e)) // want we want to say
-			// // baroque way to ensure promise stays Promise<Hero[]>
-			// .then<Character[]>(_ => _, e => this._fetchFailed(e));
-
-	}
-
-	private _fetchFailed(error:any) {
-		console.error(error);
-		return Promise.reject(error);
-	}
-    // this._characterService.getCharacters()
-    //   .subscribe((characters: Character[]) => {
-    //     this.characters = characters.slice(1,5);
-    //   });
+      .map((response: Response) => {
+        return response.json().filter((c: Character) => { return c.id === id; })[0]
+      })
+      .toPromise()
+      .catch(fetchFailed);
+  }
 
   getCharacter(id: number) {
     return this._http.get('characters.json')
       .map((response: Response) => {
         return response.json().filter((c: Character) => { return c.id === id; })[0]
-        // response.json();
       })
+  }
+}
 
-    // return this.getCharacters()
-    //   .subscribe((characters: Character[]) =>
-    //     characters.filter((c) => { return c.id === id; })[0]
-    //   //this.character = characters;
-    // );
-    // .then((characters) => { return characters.filter((c) => {return c.id === id;})[0]});
-	}
+function fetchFailed(error: any) {
+  //TODO: dont use console here
+  console.error(error);
+  return Promise.reject(error);
 }

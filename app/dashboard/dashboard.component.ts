@@ -2,6 +2,7 @@ import {Component, OnInit} from 'angular2/core';
 import {Router} from 'angular2/router';
 import {Character} from './../core/character';
 import {CharacterService} from './../core/character.service';
+import {CONFIG} from '../config';
 
 @Component({
   selector: 'my-dashboard',
@@ -14,21 +15,26 @@ export class DashboardComponent implements OnInit {
   constructor(private _characterService: CharacterService, private _router: Router) { }
 
 	ngOnInit() {
-    this.characters = this.getcharacters();
+    this.characters = this.getCharacters();
   }
 
   gotoDetail(character: Character) {
     this._router.navigate(['/CharacterDetail', { id: character.id }]);
   }
 
-  getcharacters() {
+  getCharacters() {
     this.characters = [];
 
-    this._characterService.getCharacters()
-      .subscribe((characters: Character[]) => {
-        this.characters = characters.slice(1,5);
-      });
-              // .then((characters: Character[]) => this.characters = characters);
+    if (CONFIG.useHttpWithRx) {
+      this._characterService.getCharacters()
+        .subscribe((characters: Character[]) => {
+          this.characters = characters.slice(1,5);
+        });
+      //TODO: How would this work if I wanted to use RxPipe ?
+    } else {
+      this._characterService.getCharacters_ViaPromise()
+        .then((characters: Character[]) => this.characters = characters.slice(1,5));
+    }
 
     return this.characters;
   }
