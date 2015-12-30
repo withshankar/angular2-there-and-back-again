@@ -21,8 +21,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   providers: [HTTP_PROVIDERS, ROUTER_PROVIDERS]
 })
 @RouteConfig([
-  { path: '/dashboard', name: 'Dashboard', component: DashboardComponent, useAsDefault: false },
+  { path: '/dashboard', name: 'Dashboard', component: DashboardComponent, useAsDefault: true },
   { path: '/binding', name: 'Binding', component: BindingComponent },
-	{ path: '/characters/...', name: 'CharactersDashboard', component: CharactersDashboardComponent, useAsDefault: true	},
+	{ path: '/characters/...', name: 'CharactersDashboard', component: CharactersDashboardComponent	},
 ])
 export class AppComponent { }
