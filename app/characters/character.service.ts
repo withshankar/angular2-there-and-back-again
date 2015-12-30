@@ -1,7 +1,7 @@
-import {Injectable} from 'angular2/core';
-import {Http, Response} from 'angular2/http';
-import {Character} from './character';
-import {Observable, Subscription} from 'rxjs';
+import { Injectable } from 'angular2/core';
+import { Http, Response } from 'angular2/http';
+import { Character } from './character';
+import { Observable, Subscription } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 

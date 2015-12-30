@@ -1,13 +1,14 @@
-import {Component, OnInit} from 'angular2/core';
-import {Router} from 'angular2/router';
-import {Character} from './../characters/character';
-import {CharacterService} from './../characters/character.service';
-import {CONFIG} from '../config';
+import { Component, OnInit } from 'angular2/core';
+import { Router } from 'angular2/router';
+import { Character } from '../characters/character';
+import { CharacterService } from '../characters/character.service';
+import { CONFIG } from '../config';
 
 @Component({
   selector: 'my-dashboard',
 	templateUrl: 'app/dashboard/dashboard.component.html',
-	styleUrls: ['app/dashboard/dashboard.component.css']
+  styleUrls: ['app/dashboard/dashboard.component.css'],
+  providers: [CharacterService]
 })
 export class DashboardComponent implements OnInit {
 	public characters: Character[];

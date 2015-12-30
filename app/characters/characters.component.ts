@@ -1,20 +1,21 @@
-import {Component, OnInit} from 'angular2/core';
-import {Router} from 'angular2/router';
-import {Character} from './character';
-import {CharacterDetailComponent} from './character-detail.component';
-import {CharacterService} from './character.service';
-import {FilterService} from '../blocks/filter.service';
-import {FilterTextComponent} from '../blocks/filter-text.component';
-import {InitCapsPipe} from '../blocks/init-caps.pipe'
-import {SortCharactersPipe} from './sort-characters.pipe'
-import {CONFIG} from '../config';
+import { Component, OnInit } from 'angular2/core';
+import { Router } from 'angular2/router';
+import { Character } from './character';
+import { CharacterDetailComponent } from './character-detail.component';
+import { CharacterService } from './character.service';
+import { FilterService } from '../blocks/filter.service';
+import { FilterTextComponent } from '../blocks/filter-text.component';
+import { InitCapsPipe } from '../blocks/init-caps.pipe'
+import { SortCharactersPipe } from './sort-characters.pipe'
+import { CONFIG } from '../config';
 
 @Component({
   selector: 'taba-characters',
   templateUrl: './app/characters/characters.component.html',
   directives: [CharacterDetailComponent, FilterTextComponent],
   styleUrls: ['./app/characters/characters.component.css'],
-  pipes: [InitCapsPipe, SortCharactersPipe]
+  pipes: [InitCapsPipe, SortCharactersPipe],
+  providers: [FilterService]
 })
 export class CharactersComponent implements OnInit {
   public characters: Character[];

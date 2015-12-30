@@ -1,5 +1,5 @@
-import {Pipe, PipeTransform} from 'angular2/core';
-import {Character} from './character';
+import { Pipe, PipeTransform } from 'angular2/core';
+import { Character } from './character';
 
 @Pipe({ name: 'sortCharacters' })
 export class SortCharactersPipe implements PipeTransform {
