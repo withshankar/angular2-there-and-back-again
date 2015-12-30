@@ -5,5 +5,5 @@
 		<label>name: </label>
 		<input [(ngModel)]="character.name" placeholder="name">
 	</div>
-	<button (click)="gotoCharacters()">Back</button>
+	<button [routerLink]="['CharactersDashboard']">Back to Characters</button>
 </div>

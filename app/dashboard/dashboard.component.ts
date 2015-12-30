@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
   }
 
   gotoDetail(character: Character) {
-    this._router.navigate(['/CharacterDetail', { id: character.id }]);
+    this._router.navigate(['CharactersDashboard', 'CharacterDetail', { id: character.id }]);
   }
 
   getCharacters() {

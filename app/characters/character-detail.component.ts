@@ -1,12 +1,13 @@
 import { Component, Input, OnChanges, OnInit } from 'angular2/core';
-import { RouteParams, Router } from 'angular2/router';
+import { RouteParams, Router, ROUTER_DIRECTIVES } from 'angular2/router';
 import { Character } from '../characters/character';
 import { CharacterService } from '../characters/character.service';
 import { CONFIG } from '../config';
 
 @Component({
   selector: 'taba-character-detail',
-  templateUrl: 'app/characters/character-detail.component.html'
+  templateUrl: 'app/characters/character-detail.component.html',
+  directives: [ROUTER_DIRECTIVES]
 })
 export class CharacterDetailComponent implements OnChanges, OnInit {
   @Input()
