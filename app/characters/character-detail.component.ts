@@ -13,9 +13,8 @@ import { DialogService } from '../blocks/dialog.service';
 })
 export class CharacterDetailComponent implements CanDeactivate, OnChanges, OnInit {
   @Input()
-  public character: Character;
-
-  public editName: string;
+  character: Character;
+  editName: string;
 
   constructor(
     private _characterService: CharacterService,

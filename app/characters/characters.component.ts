@@ -18,10 +18,10 @@ import { CONFIG } from '../config';
   providers: [FilterService]
 })
 export class CharactersComponent implements OnInit {
-  public characters: Character[];
-  public filteredCharacters = this.characters;
-  public selectedCharacter: Character;
-  public filterText = '';
+  characters: Character[];
+  filteredCharacters = this.characters;
+  selectedCharacter: Character;
+  filterText = '';
 
   constructor(
     private _filterService: FilterService,

@@ -10,7 +10,7 @@ import { CONFIG } from '../config';
   styleUrls: ['app/dashboard/dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-	public characters: Character[];
+	characters: Character[];
 
   constructor(private _characterService: CharacterService, private _router: Router) { }
 

@@ -13,8 +13,8 @@ import { Component, EventEmitter } from 'angular2/core';
   `
 })
 export class FilterTextComponent {
-  public filter: string;
-  public changed: EventEmitter<string>;
+  filter: string;
+  changed: EventEmitter<string>;
 
   constructor() {
     this.changed = new EventEmitter();
