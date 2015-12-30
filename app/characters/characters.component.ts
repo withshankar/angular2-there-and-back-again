@@ -23,8 +23,10 @@ export class CharactersComponent implements OnInit {
   public selectedCharacter: Character;
   public filterText = '';
 
-  constructor(private _filterService: FilterService,
-    private _characterService: CharacterService, private _router: Router) { }
+  constructor(
+    private _filterService: FilterService,
+    private _characterService: CharacterService,
+    private _router: Router) { }
 
   getCharacters() {
     this.selectedCharacter = undefined;
@@ -49,9 +51,13 @@ export class CharactersComponent implements OnInit {
     this._router.navigate(['CharacterDetail', {id: this.selectedCharacter.id}]);
   }
 
-  ngOnInit() { return this.characters = this.getCharacters(); }
+  ngOnInit() {
+    return this.characters = this.getCharacters();
+  }
 
-  onSelect(character: Character) { this.selectedCharacter = character; }
+  onSelect(character: Character) {
+    this.selectedCharacter = character;
+  }
 
   filterChanged(searchText: string) {
     this.filteredCharacters = this._filterService.filter(searchText, ['id', 'name'], this.characters);

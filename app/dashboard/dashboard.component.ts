@@ -7,8 +7,7 @@ import { CONFIG } from '../config';
 @Component({
   selector: 'my-dashboard',
 	templateUrl: 'app/dashboard/dashboard.component.html',
-  styleUrls: ['app/dashboard/dashboard.component.css'],
-  providers: [CharacterService]
+  styleUrls: ['app/dashboard/dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
 	public characters: Character[];

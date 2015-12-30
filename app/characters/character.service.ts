@@ -21,14 +21,14 @@ export class CharacterService {
   }
 
   getCharacters() {
-    let o = this._http.get('characters.json')
+    let observable = this._http.get('characters.json')
       .map((response: Response) => <Character[]>response.json())
 
     // TODO: learning moment.
     // if i want to subscribe here and do something with the data, or handle errors.
     // i capture the subscription in case i want to kill it later
     //  ex: this.subscription.unsubscribe()
-    this.subscription = o.subscribe(
+    this.subscription = observable.subscribe(
       null, //characters => characters, // Success path
       err => (err: any) => console.error('There was an error: ' + err), // Failure path
       () => console.log('getCharacters Completed') // Completed actions
@@ -37,7 +37,7 @@ export class CharacterService {
     // TODO: How do we chain the errors?
     // TODO: how do i tell the observable i am done and no more is expected? I expected .Completed?
 
-    return o;
+    return observable;
   }
 
   getCharacter_ViaPromise(id: number) {

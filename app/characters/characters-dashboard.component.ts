@@ -11,12 +11,11 @@ import { CharacterService } from './character.service';
     <h2>Character Dashboard</h2>
     <router-outlet></router-outlet>
   `,
-  directives: [ROUTER_DIRECTIVES],
-  providers: [CharacterService]
+  directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig([
   { path: '/', name: 'CharactersDashboard', component: CharactersComponent, useAsDefault: true },
-	// { path: '/list/:id', name: 'Characters', component: CharactersComponent	},
+	{ path: '/list/:id', name: 'Characters', component: CharactersComponent	},
 	{ path: '/:id', name: 'CharacterDetail', component: CharacterDetailComponent }
 ])
 export class CharactersDashboardComponent implements OnInit {

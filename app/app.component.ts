@@ -4,7 +4,9 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/route
 
 import { BindingComponent } from './binding/binding.component';
 import { CharactersDashboardComponent } from './characters/characters-dashboard.component';
+import { CharacterService } from './characters/character.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DialogService } from './blocks/dialog.service';
 
 @Component({
   selector: 'taba-app',
@@ -18,7 +20,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   `,
   styles: ['app/app.component.css'],
   directives: [ROUTER_DIRECTIVES],
-  providers: [HTTP_PROVIDERS, ROUTER_PROVIDERS]
+  providers: [HTTP_PROVIDERS, ROUTER_PROVIDERS, CharacterService, DialogService]
 })
 @RouteConfig([
   { path: '/dashboard', name: 'Dashboard', component: DashboardComponent, useAsDefault: true },
