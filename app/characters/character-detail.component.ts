@@ -1,8 +1,8 @@
 import {Component, Input, OnChanges, OnInit} from 'angular2/core';
 import {RouteParams, Router} from 'angular2/router';
-import {Character} from '../core/character';
-import {CharacterService} from '../core/character.service';
-import {CONFIG} from '../config';
+import {Character} from '../character';
+import {CharacterService} from '../character.service';
+import {CONFIG} from '../../config';
 
 @Component({
   selector: 'taba-character-detail',

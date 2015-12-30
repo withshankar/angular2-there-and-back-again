@@ -2,7 +2,7 @@ import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import {BindingComponent} from './binding/binding.component';
 import {CharactersComponent} from './characters/characters.component';
-import {CharacterDetailComponent} from './character-detail/character-detail.component';
+import {CharacterDetailComponent} from './characters/character-detail.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 
 @Component({

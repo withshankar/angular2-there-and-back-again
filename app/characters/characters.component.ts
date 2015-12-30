@@ -1,12 +1,12 @@
 import {Component, OnInit} from 'angular2/core';
 import {Router} from 'angular2/router';
-import {Character} from '../core/character';
-import {CharacterDetailComponent} from '../character-detail/character-detail.component';
-import {CharacterService} from '../core/character.service';
+import {Character} from './character';
+import {CharacterDetailComponent} from './character-detail.component';
+import {CharacterService} from './character.service';
 import {FilterService} from '../blocks/filter.service';
 import {FilterTextComponent} from '../blocks/filter-text.component';
 import {InitCapsPipe} from '../blocks/init-caps.pipe'
-import {SortCharactersPipe} from '../core/sort-characters.pipe'
+import {SortCharactersPipe} from './sort-characters.pipe'
 import {CONFIG} from '../config';
 
 @Component({
