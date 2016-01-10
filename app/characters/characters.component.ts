@@ -52,7 +52,7 @@ export class CharactersComponent implements OnInit {
   }
 
   ngOnInit() {
-    return this.characters = this.getCharacters();
+    this.characters = this.getCharacters();
   }
 
   onSelect(character: Character) {
