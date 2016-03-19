@@ -7,7 +7,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class CharacterService {
-  subscription : Subscription<Character>;
+  subscription : Subscription;
 
   constructor(private _http: Http) { }
 
